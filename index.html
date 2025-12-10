@@ -19,7 +19,7 @@
     .audio-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
     .audio-table th { background: #363636; color: white; padding: 10px; text-align: center; font-size: 0.9rem; }
     .audio-table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: middle; }
-    .audio-table audio { width: 150px; height: 32px; }
+    .audio-table audio { width: 160px; height: 36px; }
     .audio-table .ours { background: #effaf5; }
     
     footer { background: #363636; color: #f5f5f5; padding: 20px; text-align: center; margin-top: 30px; }
@@ -32,7 +32,6 @@
   <div class="container is-max-desktop has-text-centered">
     <h1 class="title is-3 title-font">Training-Free Dynamic RVQ Depth Allocation for Neural Audio Coding</h1>
     <p class="subtitle is-5">Anonymous Authors</p>
-    <span class="tag is-info is-medium">ICME 2026 Submission</span>
   </div>
 </section>
 
@@ -61,13 +60,13 @@
 <section class="section" style="padding-top: 0;">
   <div class="container is-max-desktop">
     <h2 class="section-title">Audio Demos</h2>
+    <p style="margin-bottom: 20px;">Audio samples from our subjective listening test (MOS evaluation). Compare the original reference with Fixed-4 (3.00 kbps), Fixed-6 (4.50 kbps), and our dynamic method (~2.69 kbps).</p>
 
-    <h4 class="title is-5" style="margin-top: 1.5rem;">Speech Samples (LibriSpeech)</h4>
     <table class="audio-table">
       <thead>
         <tr>
           <th>Sample</th>
-          <th>Reference</th>
+          <th>Original</th>
           <th>Fixed-4 (3.00 kbps)</th>
           <th>Fixed-6 (4.50 kbps)</th>
           <th>Ours (~2.69 kbps)</th>
@@ -75,75 +74,179 @@
       </thead>
       <tbody>
         <tr>
-          <td>Speech 1</td>
-          <td><audio controls src="audio/speech1_ref.wav"></audio></td>
-          <td><audio controls src="audio/speech1_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/speech1_fixed6.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/speech1_ours.wav"></audio></td>
+          <td>01</td>
+          <td><audio controls src="audio/mos_01_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_01_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_01_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_01_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Speech 2</td>
-          <td><audio controls src="audio/speech2_ref.wav"></audio></td>
-          <td><audio controls src="audio/speech2_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/speech2_fixed6.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/speech2_ours.wav"></audio></td>
+          <td>02</td>
+          <td><audio controls src="audio/mos_02_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_02_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_02_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_02_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Speech 3</td>
-          <td><audio controls src="audio/speech3_ref.wav"></audio></td>
-          <td><audio controls src="audio/speech3_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/speech3_fixed6.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/speech3_ours.wav"></audio></td>
+          <td>03</td>
+          <td><audio controls src="audio/mos_03_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_03_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_03_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_03_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Speech 4</td>
-          <td><audio controls src="audio/speech4_ref.wav"></audio></td>
-          <td><audio controls src="audio/speech4_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/speech4_fixed6.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/speech4_ours.wav"></audio></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h4 class="title is-5" style="margin-top: 2rem;">Music Samples (MUSDB18-HQ)</h4>
-    <table class="audio-table">
-      <thead>
-        <tr>
-          <th>Sample</th>
-          <th>Reference</th>
-          <th>Fixed-4 (6.00 kbps)</th>
-          <th>Fixed-12 (18.00 kbps)</th>
-          <th>Ours (~10.80 kbps)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Music 1</td>
-          <td><audio controls src="audio/music1_ref.wav"></audio></td>
-          <td><audio controls src="audio/music1_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/music1_fixed12.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/music1_ours.wav"></audio></td>
+          <td>04</td>
+          <td><audio controls src="audio/mos_06_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_06_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_06_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_06_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Music 2</td>
-          <td><audio controls src="audio/music2_ref.wav"></audio></td>
-          <td><audio controls src="audio/music2_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/music2_fixed12.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/music2_ours.wav"></audio></td>
+          <td>05</td>
+          <td><audio controls src="audio/mos_07_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_07_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_07_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_07_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Music 3</td>
-          <td><audio controls src="audio/music3_ref.wav"></audio></td>
-          <td><audio controls src="audio/music3_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/music3_fixed12.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/music3_ours.wav"></audio></td>
+          <td>06</td>
+          <td><audio controls src="audio/mos_09_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_09_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_09_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_09_dynamic.wav"></audio></td>
         </tr>
         <tr>
-          <td>Music 4</td>
-          <td><audio controls src="audio/music4_ref.wav"></audio></td>
-          <td><audio controls src="audio/music4_fixed4.wav"></audio></td>
-          <td><audio controls src="audio/music4_fixed12.wav"></audio></td>
-          <td class="ours"><audio controls src="audio/music4_ours.wav"></audio></td>
+          <td>07</td>
+          <td><audio controls src="audio/mos_10_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_10_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_10_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_10_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><audio controls src="audio/mos_12_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_12_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_12_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_12_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><audio controls src="audio/mos_13_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_13_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_13_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_13_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><audio controls src="audio/mos_14_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_14_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_14_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_14_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><audio controls src="audio/mos_15_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_15_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_15_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_15_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><audio controls src="audio/mos_16_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_16_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_16_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_16_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><audio controls src="audio/mos_17_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_17_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_17_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_17_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><audio controls src="audio/mos_19_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_19_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_19_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_19_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><audio controls src="audio/mos_20_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_20_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_20_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_20_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><audio controls src="audio/mos_21_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_21_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_21_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_21_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td><audio controls src="audio/mos_22_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_22_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_22_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_22_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td><audio controls src="audio/mos_23_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_23_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_23_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_23_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td><audio controls src="audio/mos_24_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_24_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_24_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_24_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td><audio controls src="audio/mos_25_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_25_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_25_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_25_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td><audio controls src="audio/mos_26_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_26_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_26_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_26_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td><audio controls src="audio/mos_27_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_27_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_27_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_27_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td><audio controls src="audio/mos_28_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_28_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_28_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_28_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td><audio controls src="audio/mos_29_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_29_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_29_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_29_dynamic.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td><audio controls src="audio/mos_30_original.wav"></audio></td>
+          <td><audio controls src="audio/mos_30_fixed_4.wav"></audio></td>
+          <td><audio controls src="audio/mos_30_fixed_6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/mos_30_dynamic.wav"></audio></td>
         </tr>
       </tbody>
     </table>
