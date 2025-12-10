@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Training-Free Dynamic RVQ Depth Allocation for Neural Audio Coding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training-Free Dynamic RVQ Depth Allocation for Neural Audio Coding</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .title-font { font-family: 'Google Sans', sans-serif; font-weight: 700; }
+    .section { padding: 2rem 1.5rem; }
+    .section-title { font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 1.6rem; margin-bottom: 1rem; border-bottom: 2px solid #3273dc; padding-bottom: 0.5rem; }
+    .framework-img { max-width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    
+    .audio-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    .audio-table th { background: #363636; color: white; padding: 10px; text-align: center; font-size: 0.9rem; }
+    .audio-table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; vertical-align: middle; }
+    .audio-table audio { width: 150px; height: 32px; }
+    .audio-table .ours { background: #effaf5; }
+    
+    footer { background: #363636; color: #f5f5f5; padding: 20px; text-align: center; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+<!-- Title -->
+<section class="hero" style="padding: 2rem 0 1rem;">
+  <div class="container is-max-desktop has-text-centered">
+    <h1 class="title is-3 title-font">Training-Free Dynamic RVQ Depth Allocation for Neural Audio Coding</h1>
+    <p class="subtitle is-5">Anonymous Authors</p>
+    <span class="tag is-info is-medium">ICME 2026 Submission</span>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title">Abstract</h2>
+    <p class="has-text-justified">
+      Residual Vector Quantization (RVQ) is fundamental to modern neural audio codecs, yet existing implementations apply a fixed depth across all frames, ignoring the inherent variability in audio complexity. This leads to over-quantization of simple frames and significant bitrate redundancy. We propose a training-free framework for dynamic RVQ depth allocation at inference time. Our method employs a lightweight complexity estimator analyzing latent features—energy, entropy, and dynamic range—to guide adaptive depth selection with negligible overhead. Evaluations on speech and music datasets demonstrate that our approach achieves perceptual quality matching fixed-depth baselines while reducing bitrate by 40% (2.69 vs. 4.50 kbps on speech). The framework requires no model retraining and serves as a plug-in solution for content-adaptive bitrate efficiency in existing RVQ-based codecs.
+    </p>
+  </div>
+</section>
+
+<!-- Framework -->
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title">Framework</h2>
+    <div class="has-text-centered">
+      <img src="images/framework.png" alt="Framework" class="framework-img">
+      <p class="is-size-7 has-text-grey" style="margin-top: 8px;">Figure 1: Overview of the proposed dynamic RVQ depth allocation framework.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Audio Demos -->
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop">
+    <h2 class="section-title">Audio Demos</h2>
+
+    <h4 class="title is-5" style="margin-top: 1.5rem;">Speech Samples (LibriSpeech)</h4>
+    <table class="audio-table">
+      <thead>
+        <tr>
+          <th>Sample</th>
+          <th>Reference</th>
+          <th>Fixed-4 (3.00 kbps)</th>
+          <th>Fixed-6 (4.50 kbps)</th>
+          <th>Ours (~2.69 kbps)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Speech 1</td>
+          <td><audio controls src="audio/speech1_ref.wav"></audio></td>
+          <td><audio controls src="audio/speech1_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/speech1_fixed6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/speech1_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Speech 2</td>
+          <td><audio controls src="audio/speech2_ref.wav"></audio></td>
+          <td><audio controls src="audio/speech2_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/speech2_fixed6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/speech2_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Speech 3</td>
+          <td><audio controls src="audio/speech3_ref.wav"></audio></td>
+          <td><audio controls src="audio/speech3_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/speech3_fixed6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/speech3_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Speech 4</td>
+          <td><audio controls src="audio/speech4_ref.wav"></audio></td>
+          <td><audio controls src="audio/speech4_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/speech4_fixed6.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/speech4_ours.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="title is-5" style="margin-top: 2rem;">Music Samples (MUSDB18-HQ)</h4>
+    <table class="audio-table">
+      <thead>
+        <tr>
+          <th>Sample</th>
+          <th>Reference</th>
+          <th>Fixed-4 (6.00 kbps)</th>
+          <th>Fixed-12 (18.00 kbps)</th>
+          <th>Ours (~10.80 kbps)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Music 1</td>
+          <td><audio controls src="audio/music1_ref.wav"></audio></td>
+          <td><audio controls src="audio/music1_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/music1_fixed12.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/music1_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Music 2</td>
+          <td><audio controls src="audio/music2_ref.wav"></audio></td>
+          <td><audio controls src="audio/music2_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/music2_fixed12.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/music2_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Music 3</td>
+          <td><audio controls src="audio/music3_ref.wav"></audio></td>
+          <td><audio controls src="audio/music3_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/music3_fixed12.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/music3_ours.wav"></audio></td>
+        </tr>
+        <tr>
+          <td>Music 4</td>
+          <td><audio controls src="audio/music4_ref.wav"></audio></td>
+          <td><audio controls src="audio/music4_fixed4.wav"></audio></td>
+          <td><audio controls src="audio/music4_fixed12.wav"></audio></td>
+          <td class="ours"><audio controls src="audio/music4_ours.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Anonymous ICME Submission</p>
+</footer>
+
+</body>
+</html>
